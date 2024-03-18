@@ -10,7 +10,7 @@
     {% endif %}
     {% endwith %}
 
-    <h2 class="m-4">Add Inventory</h2>
+    <h2 class="m-4">Inventar Objekt erstellen</h2>
     <div class="container my-4" style="width: 80%;">
         
         <div class="h-[270px] shadow-md bg mt-4">
@@ -18,52 +18,52 @@
                 
                 <div class="form-row row">
                     <div class="form-group col-md-3">
-                        <label class="text-gray-700 text-sm font-bold mb-2" for="inventoryNum">Inventory Number</label>
-                        <input class="form-control shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="inventoryNum" name="inventoryNum" type="text" placeholder="Enter Inventory No">
+                        <label class="text-gray-700 text-sm font-bold mb-2" for="inventoryNum">Inventar Nummer</label>
+                        <input class="form-control shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="inventoryNum" name="inventoryNum" type="text" placeholder="Inventarnummer eingeben">
                     </div>
                     <div class="form-group col-md-5">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="hostName">
-                            Host Name
+                            Hostname
                         </label>
-                        <input class="form-control shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="hostName" name="hostName" type="text" placeholder="Enter Host Name">
+                        <input class="form-control shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="hostName" name="hostName" type="text" placeholder="Hostname eingeben">
                     </div>
                 </div>
 
                 <div class="form-row row">
                     <div class="form-group col-md-5">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="device">
-                            Device
+                            Gerät
                         </label>
-                        <input class="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="device" name="device" type="text" placeholder="Enter Device">
+                        <input class="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="device" name="device" type="text" placeholder="Gerät eingeben">
                     </div>
                     <div class="form-group col-md-3">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="date">
-                            Date
+                            Kaufdatum
                         </label>
-                        <input class="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="date" name="date" type="date" placeholder="Select Date">
+                        <input class="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="date" name="date" type="date" placeholder="Datum auswählen">
                     </div>
                 </div>
 
                 <div class="form-row row">
                     <div class="form-group col-md-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="serialNum">
-                            Serial Num
+                            Seriennummer
                         </label>
-                        <input class="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="serialNum" name="serialNum" type="text" placeholder="Enter Serial Number">
+                        <input class="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="serialNum" name="serialNum" type="text" placeholder="Seriennummer eingeben">
                     </div>
                     <div class="form-group col-md-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="macAddress">
-                            MAC Address
+                            MAC-Adresse
                         </label>
-                        <input class="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="macAddress" name="macAddress" type="text" placeholder="Enter MAC Address">
+                        <input class="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="macAddress" name="macAddress" type="text" placeholder="MAC-Adresse eingeben">
                     </div>
                 </div>
                     <div class="col-span-3 flex justify-end my-4">
                         <button class="btn btn-primary h-[50px] w-[100px] text-white font-bold rounded py-2 px-4 border hover:border-black hover:text-black hover:bg-white transition-all " type="submit">
-                            Add
+                            Hinzufügen
                         </button>
                         <button class="btn btn-secondary h-[50px] w-[100px] hover:bg-gray-700 text-white font-bold py-2 px-4 rounded ml-2" type="reset">
-                            Reset
+                            Zurücksetzen
                         </button>
                     </div>
             </form>
@@ -72,12 +72,12 @@
         <div dir="rtl">
             <div class="dropdown mb-3">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Actions
+                  Aktionen
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item">Action 1</a>
-                  <a class="dropdown-item">Action 2</a>
-                  <a class="dropdown-item">Action 3</a>
+                  <a class="dropdown-item">Aktion 1</a>
+                  <a class="dropdown-item">Aktion 2</a>
+                  <a class="dropdown-item">Aktion 3</a>
                 </div>
               </div>
         </div>
@@ -85,13 +85,13 @@
         <table class="table table-bordered table-sm">
             <thead>
             <tr>
-                <th scope="col">Inventory No.</th>
-                <th scope="col">Host Name</th>
-                <th scope="col">Device Name</th>
-                <th scope="col">Serial Number</th>
-                <th scope="col">Purchase Date</th>
-                <th scope="col">MAC Address</th>
-                <th scope="col">Edit / Delete</th>
+                <th scope="col">Inventarnummer</th>
+                <th scope="col">Hostname</th>
+                <th scope="col">Gerätename</th>
+                <th scope="col">Seriennummer</th>
+                <th scope="col">Kaufdatum</th>
+                <th scope="col">MAC-Adresse</th>
+                <th scope="col">Bearbeiten / Löschen</th>
             </tr>
             </thead>
             <tbody>
@@ -100,18 +100,18 @@
                 <tr>
                     <form action="" method="post">
                         <th scope="row">{{item.InventoryNumber}}</th>
-                        <td><input class="form-control rounded py-2 px-3 text-gray-700" id="hostName" name="hostName" type="text" placeholder="Enter Host Name" value="{{item.HostName}}"></td>
-                        <td><input class="form-control rounded py-2 px-3 text-gray-700" id="hostName" name="device" type="text" placeholder="Enter Host Name" value="{{item.DeviceName}}"></td>
-                        <td><input class="form-control rounded py-2 px-3 text-gray-700" id="hostName" name="serialNum" type="text" placeholder="Enter Host Name" value="{{item.SerialNumber}}"></td>
-                        <td><input class="form-control rounded py-2 px-3 text-gray-700" id="hostName" name="date" type="text" placeholder="Enter Host Name" value="{{item.PurchaseDate}}"></td>
-                        <td><input class="form-control rounded py-2 px-3 text-gray-700" id="hostName" name="macAddress" type="text" placeholder="Enter Host Name" value="{{item.MACAddress}}"></td>
+                        <td><input class="form-control rounded py-2 px-3 text-gray-700" id="hostName" name="hostName" type="text" placeholder="Hostname eingeben" value="{{item.HostName}}"></td>
+                        <td><input class="form-control rounded py-2 px-3 text-gray-700" id="hostName" name="device" type="text" placeholder="Hostname eingeben" value="{{item.DeviceName}}"></td>
+                        <td><input class="form-control rounded py-2 px-3 text-gray-700" id="hostName" name="serialNum" type="text" placeholder="Hostname eingeben" value="{{item.SerialNumber}}"></td>
+                        <td><input class="form-control rounded py-2 px-3 text-gray-700" id="hostName" name="date" type="text" placeholder="Hostname eingeben" value="{{item.PurchaseDate}}"></td>
+                        <td><input class="form-control rounded py-2 px-3 text-gray-700" id="hostName" name="macAddress" type="text" placeholder="Hostname eingeben" value="{{item.MACAddress}}"></td>
                         <td>
                             <button type="submit" class="btn btn-success mx-1 my-1"><svg class="me-2" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0,0,256,256">
                                 <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(9.84615,9.84615)"><path d="M22.56641,4.73047l-1.79297,-1.21875c-0.49609,-0.33594 -1.17578,-0.20703 -1.50781,0.28516l-8.78906,12.96094l-4.03906,-4.03906c-0.42187,-0.42187 -1.10937,-0.42187 -1.53125,0l-1.53516,1.53516c-0.42187,0.42188 -0.42187,1.10938 0,1.53516l6.21094,6.21094c0.34766,0.34766 0.89453,0.61328 1.38672,0.61328c0.49219,0 0.98828,-0.30859 1.30859,-0.77344l10.57813,-15.60547c0.33594,-0.49219 0.20703,-1.16797 -0.28906,-1.50391z"></path></g></g>
-                                </svg>Confirm</button>
+                                </svg>Bestätigen</button>
                             <a href="{{ url_for('index') }}"><button type="button" class="btn btn-danger mx-1"><svg class="me-2" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0,0,256,256">
                                 <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(8.53333,8.53333)"><path d="M7,4c-0.25587,0 -0.51203,0.09747 -0.70703,0.29297l-2,2c-0.391,0.391 -0.391,1.02406 0,1.41406l7.29297,7.29297l-7.29297,7.29297c-0.391,0.391 -0.391,1.02406 0,1.41406l2,2c0.391,0.391 1.02406,0.391 1.41406,0l7.29297,-7.29297l7.29297,7.29297c0.39,0.391 1.02406,0.391 1.41406,0l2,-2c0.391,-0.391 0.391,-1.02406 0,-1.41406l-7.29297,-7.29297l7.29297,-7.29297c0.391,-0.39 0.391,-1.02406 0,-1.41406l-2,-2c-0.391,-0.391 -1.02406,-0.391 -1.41406,0l-7.29297,7.29297l-7.29297,-7.29297c-0.1955,-0.1955 -0.45116,-0.29297 -0.70703,-0.29297z"></path></g></g>
-                            </svg>Abort</button></a>
+                            </svg>Abbrechen</button></a>
                         </td>
                     </form>
                 </tr>

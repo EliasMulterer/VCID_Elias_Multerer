@@ -14,7 +14,7 @@
     {% endif %}
     {% endwith %}
 
-    <h2 class="m-4">Add Inventory</h2>
+    <h2 class="m-4">Inventar hinzufügen</h2>
     <div class="container my-4" style="width: 80%;">
         
         <div class="h-[270px] shadow-md bg mt-4">
@@ -22,52 +22,52 @@
                 
                 <div class="form-row row">
                     <div class="form-group col-md-3">
-                        <label class="text-gray-700 text-sm font-bold mb-2" for="inventoryNum">Inventory Number</label>
-                        <input class="form-control shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="inventoryNum" name="inventoryNum" type="text" value="{{inventoryNum}}" placeholder="Enter Inventory No">
+                        <label class="text-gray-700 text-sm font-bold mb-2" for="inventoryNum">Inventarnummer</label>
+                        <input class="form-control shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="inventoryNum" name="inventoryNum" type="text" value="{{inventoryNum}}" placeholder="Inventarnummer eingeben">
                     </div>
                     <div class="form-group col-md-5">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="hostName">
-                            Host Name
+                            Hostname
                         </label>
-                        <input class="form-control shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="hostName" name="hostName" type="text" value="{{hostName}}" placeholder="Enter Host Name">
+                        <input class="form-control shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="hostName" name="hostName" type="text" value="{{hostName}}" placeholder="Hostname eingeben">
                     </div>
                 </div>
 
                 <div class="form-row row">
                     <div class="form-group col-md-5">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="device">
-                            Device
+                            Gerät
                         </label>
-                        <input class="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="device" name="device" type="text" value="{{deviceName}}" placeholder="Enter Device">
+                        <input class="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="device" name="device" type="text" value="{{deviceName}}" placeholder="Gerät eingeben">
                     </div>
                     <div class="form-group col-md-3">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="date">
-                            Date
+                            Datum
                         </label>
-                        <input class="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="date" name="date" type="date" value="{{date}}" placeholder="Select Date">
+                        <input class="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="date" name="date" type="date" value="{{date}}" placeholder="Datum auswählen">
                     </div>
                 </div>
 
                 <div class="form-row row">
                     <div class="form-group col-md-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="serialNum">
-                            Serial Num
+                            Seriennummer
                         </label>
-                        <input class="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="serialNum" name="serialNum" type="text" value="{{serial}}" placeholder="Enter Serial Number">
+                        <input class="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="serialNum" name="serialNum" type="text" value="{{serial}}" placeholder="Seriennummer eingeben">
                     </div>
                     <div class="form-group col-md-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="macAddress">
-                            MAC Address
+                            MAC-Adresse
                         </label>
-                        <input class="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="macAddress" name="macAddress" type="text" value="{{mac}}" placeholder="Enter MAC Address">
+                        <input class="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="macAddress" name="macAddress" type="text" value="{{mac}}" placeholder="MAC-Adresse eingeben">
                     </div>
                 </div>
                     <div class="col-span-3 flex justify-end my-4">
                         <button class="btn btn-primary h-[50px] w-[100px] text-white font-bold rounded py-2 px-4 border hover:border-black hover:text-black hover:bg-white transition-all " type="submit">
-                            Add
+                            Hinzufügen
                         </button>
                         <button class="btn btn-secondary h-[50px] w-[100px] hover:bg-gray-700 text-white font-bold py-2 px-4 rounded ml-2" type="reset">
-                            Reset
+                            Zurücksetzen
                         </button>
                     </div>
             </form>
@@ -76,12 +76,12 @@
         <div dir="rtl">
             <div class="dropdown mb-3">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Actions
+                  Aktionen
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item">Action 1</a>
-                  <a class="dropdown-item">Action 2</a>
-                  <a class="dropdown-item">Action 3</a>
+                  <a class="dropdown-item">Aktion 1</a>
+                  <a class="dropdown-item">Aktion 2</a>
+                  <a class="dropdown-item">Aktion 3</a>
                 </div>
               </div>
         </div>
@@ -89,13 +89,13 @@
         <table class="table table-bordered table-sm">
             <thead>
             <tr>
-                <th scope="col">Inventory No.</th>
-                <th scope="col">Host Name</th>
-                <th scope="col">Device Name</th>
-                <th scope="col">Serial Number</th>
-                <th scope="col">Purchase Date</th>
-                <th scope="col">MAC Address</th>
-                <th scope="col">Edit / Delete</th>
+                <th scope="col">Inventarnummer</th>
+                <th scope="col">Hostname</th>
+                <th scope="col">Gerätename</th>
+                <th scope="col">Seriennummer</th>
+                <th scope="col">Kaufdatum</th>
+                <th scope="col">MAC-Adresse</th>
+                <th scope="col">Bearbeiten / Löschen</th>
             </tr>
             </thead>
             <tbody>

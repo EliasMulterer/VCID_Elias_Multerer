@@ -7,7 +7,8 @@ sudo apt install -y python3-pip python3.11-venv
 
 #Script ausführbar machen
 chmod +x ./start.sh
-
+chmod +x ./app.py
+chmod +x ./db.py
 
 
 python3 -m venv venv

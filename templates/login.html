@@ -6,10 +6,10 @@
 
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto mt-5">
-        <h1 class="text-center">Kindly Log in to Access this Application.</h1>
+        <h1 class="text-center">Bitte melden Sie sich an um Zugriff auf die Applikation zu erhalten.</h1>
         <div class="card border-0 shadow rounded-3 my-5">
           <div class="card-body p-4 p-sm-5">
-            <h5 class="card-title text-center mb-5 fw-light fs-5"><strong>Sign In</strong></h5>
+            <h5 class="card-title text-center mb-5 fw-light fs-5"><strong>Anmelden</strong></h5>
             {% with messages = get_flashed_messages() %}
             {% if messages %}
             {% for message in messages %}
@@ -24,7 +24,7 @@
               </div>
               <div class="form-floating mb-3">
                 <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password" value="{{password}}">
-                <label for="floatingPassword">Password</label>
+                <label for="floatingPassword">Passwort</label>
               </div>
 
               <div class="d-grid">
@@ -32,7 +32,7 @@
               </div>
               
               <div class="my-4">
-                No Account? <a href="{{ url_for('signup') }}"><strong>Signup here</strong></a>
+                Kein Account? <a href="{{ url_for('signup') }}"><strong>Konto erstellen</strong></a>
               </div>
             </form>
           </div>

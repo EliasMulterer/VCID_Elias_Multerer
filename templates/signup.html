@@ -6,7 +6,7 @@
 
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto mt-5">
-        <h3 class="text-center">New User? Register Here.</h3>
+        <h3 class="text-center">Neuer Benutzer? Hier registrieren.</h3>
         <div class="card border-0 shadow rounded-3 my-4">
           <div class="card-body p-2 p-sm-5">
             {% with messages = get_flashed_messages() %}
@@ -18,32 +18,32 @@
             {% endwith %}
             <form method="post" action="{{ url_for('signup') }}">
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" name="username" id="username" value="{{username}}" placeholder="Username">
-                <label for="floatingInput">Create Username</label>
+                <input type="text" class="form-control" name="username" id="username" value="{{username}}" placeholder="Benutzername">
+                <label for="floatingInput">Benutzername erstellen</label>
               </div>
               <div class="form-floating mb-3">
                 <input type="text" class="form-control" name="name" id="name" placeholder="Name" value="{{name}}">
-                <label for="floatingInput">Enter Your Name</label>
+                <label for="floatingInput">Geben Sie Ihren Namen ein</label>
               </div>
               <div class="form-floating mb-3">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Email" value="{{email}}">
-                <label for="floatingInput">Email Address</label>
+                <input type="email" class="form-control" name="email" id="email" placeholder="E-Mail" value="{{email}}">
+                <label for="floatingInput">E-Mail-Adresse</label>
               </div>
               <div class="form-floating mb-3">
-                <input type="password" class="form-control" name="password1" id="password1" placeholder="Password" value="{{password1}}">
-                <label for="floatingPassword">Create Password</label>
+                <input type="password" class="form-control" name="password1" id="password1" placeholder="Passwort" value="{{password1}}">
+                <label for="floatingPassword">Passwort erstellen</label>
               </div>
               <div class="form-floating mb-3">
-                <input type="password" class="form-control" name="password2" id="password2" placeholder="Confirm Password" value="{{password2}}">
-                <label for="floatingPassword">Confirm Password</label>
+                <input type="password" class="form-control" name="password2" id="password2" placeholder="Passwort bestätigen" value="{{password2}}">
+                <label for="floatingPassword">Passwort bestätigen</label>
               </div>
 
               <div class="d-grid">
-                <button class="btn btn-primary btn-login text-uppercase fw-bold mt-2" type="submit">Register</button>
+                <button class="btn btn-primary btn-login text-uppercase fw-bold mt-2" type="submit">Registrieren</button>
               </div>
               
               <div class="mt-4 mb-1">
-                Already have an Account? <a href="{{ url_for('login') }}"><strong>Login here</strong></a>
+                Bereits ein Konto? <a href="{{ url_for('login') }}"><strong>Hier einloggen</strong></a>
               </div>
             </form>
           </div>
