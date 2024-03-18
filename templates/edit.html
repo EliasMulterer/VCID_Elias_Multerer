@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-danger mx-5 my-3" role="alert">{{ message }}</div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <h2 class="m-4">Add Inventory</h2>
+    <div class="container my-4" style="width: 80%;">
+        
+        <div class="h-[270px] shadow-md bg mt-4">
+            <form method="post" action="{{url_for('index')}}" class="rounded h-[700px] px-8 pt-2 mb-4 grid max-h-[270px] grid-cols-3 gap-4">
+                
+                <div class="form-row row">
+                    <div class="form-group col-md-3">
+                        <label class="text-gray-700 text-sm font-bold mb-2" for="inventoryNum">Inventory Number</label>
+                        <input class="form-control shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="inventoryNum" name="inventoryNum" type="text" placeholder="Enter Inventory No">
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="hostName">
+                            Host Name
+                        </label>
+                        <input class="form-control shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="hostName" name="hostName" type="text" placeholder="Enter Host Name">
+                    </div>
+                </div>
+
+                <div class="form-row row">
+                    <div class="form-group col-md-5">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="device">
+                            Device
+                        </label>
+                        <input class="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="device" name="device" type="text" placeholder="Enter Device">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="date">
+                            Date
+                        </label>
+                        <input class="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="date" name="date" type="date" placeholder="Select Date">
+                    </div>
+                </div>
+
+                <div class="form-row row">
+                    <div class="form-group col-md-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="serialNum">
+                            Serial Num
+                        </label>
+                        <input class="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="serialNum" name="serialNum" type="text" placeholder="Enter Serial Number">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="macAddress">
+                            MAC Address
+                        </label>
+                        <input class="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="macAddress" name="macAddress" type="text" placeholder="Enter MAC Address">
+                    </div>
+                </div>
+                    <div class="col-span-3 flex justify-end my-4">
+                        <button class="btn btn-primary h-[50px] w-[100px] text-white font-bold rounded py-2 px-4 border hover:border-black hover:text-black hover:bg-white transition-all " type="submit">
+                            Add
+                        </button>
+                        <button class="btn btn-secondary h-[50px] w-[100px] hover:bg-gray-700 text-white font-bold py-2 px-4 rounded ml-2" type="reset">
+                            Reset
+                        </button>
+                    </div>
+            </form>
+            </div>
+
+        <div dir="rtl">
+            <div class="dropdown mb-3">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Actions
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item">Action 1</a>
+                  <a class="dropdown-item">Action 2</a>
+                  <a class="dropdown-item">Action 3</a>
+                </div>
+              </div>
+        </div>
+
+        <table class="table table-bordered table-sm">
+            <thead>
+            <tr>
+                <th scope="col">Inventory No.</th>
+                <th scope="col">Host Name</th>
+                <th scope="col">Device Name</th>
+                <th scope="col">Serial Number</th>
+                <th scope="col">Purchase Date</th>
+                <th scope="col">MAC Address</th>
+                <th scope="col">Edit / Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for item in Table %}
+                {% if item.InventoryNumber == itemToEdit %}
+                <tr>
+                    <form action="" method="post">
+                        <th scope="row">{{item.InventoryNumber}}</th>
+                        <td><input class="form-control rounded py-2 px-3 text-gray-700" id="hostName" name="hostName" type="text" placeholder="Enter Host Name" value="{{item.HostName}}"></td>
+                        <td><input class="form-control rounded py-2 px-3 text-gray-700" id="hostName" name="device" type="text" placeholder="Enter Host Name" value="{{item.DeviceName}}"></td>
+                        <td><input class="form-control rounded py-2 px-3 text-gray-700" id="hostName" name="serialNum" type="text" placeholder="Enter Host Name" value="{{item.SerialNumber}}"></td>
+                        <td><input class="form-control rounded py-2 px-3 text-gray-700" id="hostName" name="date" type="text" placeholder="Enter Host Name" value="{{item.PurchaseDate}}"></td>
+                        <td><input class="form-control rounded py-2 px-3 text-gray-700" id="hostName" name="macAddress" type="text" placeholder="Enter Host Name" value="{{item.MACAddress}}"></td>
+                        <td>
+                            <button type="submit" class="btn btn-success mx-1 my-1"><svg class="me-2" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0,0,256,256">
+                                <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(9.84615,9.84615)"><path d="M22.56641,4.73047l-1.79297,-1.21875c-0.49609,-0.33594 -1.17578,-0.20703 -1.50781,0.28516l-8.78906,12.96094l-4.03906,-4.03906c-0.42187,-0.42187 -1.10937,-0.42187 -1.53125,0l-1.53516,1.53516c-0.42187,0.42188 -0.42187,1.10938 0,1.53516l6.21094,6.21094c0.34766,0.34766 0.89453,0.61328 1.38672,0.61328c0.49219,0 0.98828,-0.30859 1.30859,-0.77344l10.57813,-15.60547c0.33594,-0.49219 0.20703,-1.16797 -0.28906,-1.50391z"></path></g></g>
+                                </svg>Confirm</button>
+                            <a href="{{ url_for('index') }}"><button type="button" class="btn btn-danger mx-1"><svg class="me-2" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0,0,256,256">
+                                <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(8.53333,8.53333)"><path d="M7,4c-0.25587,0 -0.51203,0.09747 -0.70703,0.29297l-2,2c-0.391,0.391 -0.391,1.02406 0,1.41406l7.29297,7.29297l-7.29297,7.29297c-0.391,0.391 -0.391,1.02406 0,1.41406l2,2c0.391,0.391 1.02406,0.391 1.41406,0l7.29297,-7.29297l7.29297,7.29297c0.39,0.391 1.02406,0.391 1.41406,0l2,-2c0.391,-0.391 0.391,-1.02406 0,-1.41406l-7.29297,-7.29297l7.29297,-7.29297c0.391,-0.39 0.391,-1.02406 0,-1.41406l-2,-2c-0.391,-0.391 -1.02406,-0.391 -1.41406,0l-7.29297,7.29297l-7.29297,-7.29297c-0.1955,-0.1955 -0.45116,-0.29297 -0.70703,-0.29297z"></path></g></g>
+                            </svg>Abort</button></a>
+                        </td>
+                    </form>
+                </tr>
+                {% else %}
+                <tr>
+                    <th scope="row">{{item.InventoryNumber}}</th>
+                    <td>{{item.HostName}}</td>
+                    <td>{{item.DeviceName}}</td>
+                    <td>{{item.SerialNumber}}</td>
+                    <td>{{item.PurchaseDate}}</td>
+                    <td>{{item.MACAddress}}</td>
+                    <td>
+                        <a href="{{ url_for('edit', num=item.InventoryNumber )}}"><button onclick="storeScrollPosition()" class="btn btn-secondary mx-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                            <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+                        </svg></button></a>
+                        <a href="{{ url_for('delete', num=item.InventoryNumber )}}"><button onclick="storeScrollPosition()" class="btn btn-danger mx-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                        <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
+                        </svg></button></a>
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script>
+        function storeScrollPosition() {
+            sessionStorage.setItem('scrollPosition', window.scrollY);
+        }
+        function scrollToStoredPosition() {
+            var scrollPosition = sessionStorage.getItem('scrollPosition');
+            if (scrollPosition) {
+                window.scrollTo(0, parseInt(scrollPosition));
+            }
+        }
+        window.onload = scrollToStoredPosition();
+    </script>
+{% endblock %}
