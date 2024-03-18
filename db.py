@@ -1,13 +1,13 @@
 import pymysql
 
-# These are the details for connecting to your database. Kindly set them accordingly when deploying:
+# Diese Details sind für die Verbindung zu der Datenbank. Bitte anpassen je nach bereitstellung der Datenbank
 db_user = 'root'
 db_password = ''
 db_connection_name = 'praxisarbeit-vcid-multerer:europe-west1:vicd'
 db_name = 'cmdb'
 
 
-# Conneting to the cloud SQL instance:
+# Verbindung zur Cloud SQL-Instanz herstellen:
 def open_connection():
     unix_socket = '/cloudsql/{}'.format(db_connection_name)
     connection = pymysql.connect(user=db_user,
@@ -18,7 +18,7 @@ def open_connection():
                              cursorclass=pymysql.cursors.DictCursor)
     return connection
 
-# Function to get Data from Table:
+# Funktion zum Abrufen von Daten aus der Tabelle:
 def getTable():
     try:
         connection = open_connection()
@@ -42,11 +42,11 @@ def getTable():
         response = {
                 'Code': 400,
                 'Results': None,
-                'Error': "Connection with SQL Server Not Successful."
+                'Error': "Verbindung mit dem SQL-Server nicht erfolgreich."
             }
     return response
     
-# Function to Add Data in table:
+# Funktion zum Hinzufügen von Daten in die Tabelle:
 def addItem(inventoryNum, hostName, deviceName, serialNum, date, MACAdress):
     try:
         connection = open_connection()
@@ -59,9 +59,9 @@ def addItem(inventoryNum, hostName, deviceName, serialNum, date, MACAdress):
     except pymysql.MySQLError as e:
         return getattr(e, 'args', [None])[1]
     except:
-        return "Connection with SQL Server Not Successful."
+        return "Verbindung mit dem SQL-Server nicht erfolgreich."
 
-# Function to Edit Data in Table:
+# Funktion zum Bearbeiten von Daten in der Tabelle:
 def editItem(inventoryNum, hostName, deviceName, serialNum, date, MACAdress):
     try:
         connection = open_connection()
@@ -74,9 +74,9 @@ def editItem(inventoryNum, hostName, deviceName, serialNum, date, MACAdress):
     except pymysql.MySQLError as e:
         return getattr(e, 'args', [None])[1]
     except:
-        return "Connection with SQL Server Not Successful."
+        return "Verbindung mit dem SQL-Server nicht erfolgreich."
     
-# Function to Delete Data from Table:
+# Funktion zum Löschen von Daten aus der Tabelle:
 def deleteItem(inventoryNum):
     try:
         connection = open_connection()
@@ -89,9 +89,9 @@ def deleteItem(inventoryNum):
     except pymysql.MySQLError as e:
         return getattr(e, 'args', [None])[1]
     except:
-        return "Connection with SQL Server Not Successful."
+        return "Verbindung mit dem SQL-Server nicht erfolgreich."
 
-# Function to Create/Register User in Database:
+# Funktion zum Erstellen/Registrieren eines Benutzers in der Datenbank:
 def createUser(username, name, email, password):
     try:
         connection = open_connection()
@@ -104,9 +104,9 @@ def createUser(username, name, email, password):
     except pymysql.MySQLError as e:
         return getattr(e, 'args', [None])[1]
     except:
-        return "Connection with SQL Server Not Successful."
+        return "Verbindung mit dem SQL-Server nicht erfolgreich."
     
-# Function to get User from Username:
+# Funktion zum Abrufen eines Benutzers anhand des Benutzernamens:
 def getUserFromUsername(username):
     try:
         connection = open_connection()
@@ -121,9 +121,9 @@ def getUserFromUsername(username):
     except pymysql.MySQLError as e:
         return getattr(e, 'args', [None])[1]
     except:
-        return "Connection with SQL Server Not Successful."
+        return "Verbindung mit dem SQL-Server nicht erfolgreich."
     
-# Function to Check if User exist in Database:
+# Funktion zum Überprüfen, ob ein Benutzer in der Datenbank existiert:
 def checkUser(username, password):
     try:
         connection = open_connection()
@@ -138,4 +138,4 @@ def checkUser(username, password):
     except pymysql.MySQLError as e:
         return getattr(e, 'args', [None])[1]
     except:
-        return "Connection with SQL Server Not Successful."
+        return "Verbindung mit dem SQL-Server nicht erfolgreich."
