@@ -2,13 +2,22 @@ import os
 import pymysql
 import io
 import csv
+from flask_httpauth import HTTPBasicAuth
 from flask import Flask, render_template, jsonify, request, redirect, url_for, flash, session, Response, send_file
 
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+auth = HTTPBasicAuth()
 
 # Alle Funktionen bezüglich der Datenbank sind in der Datei "db.py" enthalten.
 from db import getTable, addItem, editItem, deleteItem, createUser, getUserFromUsername, checkUser
+
+@auth.verify_password
+def verify_password(username, password):
+    user = checkUser(username, password)
+    if user != 404:
+        return username
+
 
 # Index/Home Page/Add Item:
 @app.route('/', methods = ['GET', 'POST'])
@@ -127,6 +136,18 @@ def export():
         output.getvalue(), 
         mimetype="text/csv", 
         headers={"Content-disposition": "attachment; filename=export.csv"})
+
+#API Daten abrufen, Login erforderlich
+@app.route('/api/items', methods=['GET'])
+@auth.login_required # Login erforderlich, wird derselbe verwendet, wie für Login Page
+def api_items():
+    table = getTable()
+    if table['Code'] == 200:
+        # Daten erfolgreich abgerufen
+        return jsonify(table['Results'])
+    else:
+        # Bei einem Fehler eine HTTP-Antwort senden
+        return jsonify({"error": table['Error']}), table['Code']
 
 
 # Login Page:
