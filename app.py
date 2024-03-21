@@ -1,6 +1,8 @@
 import os
 import pymysql
-from flask import Flask, render_template, jsonify, request, redirect, url_for, flash, session
+import io
+import csv
+from flask import Flask, render_template, jsonify, request, redirect, url_for, flash, session, Response, send_file
 
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
@@ -92,6 +94,40 @@ def delete(num):
 
     return redirect(url_for('index'))
 
+#CSV Export
+@app.route('/export', methods=['GET'])
+def export():
+    if session.get('loggedin') is None or session.get('username') is None:
+        flash("Bitte zuerst Anmelden.")
+        return redirect(url_for('login'))
+
+    table = getTable()
+    if table['Code'] != 200:
+        flash(table['Error'])
+        return redirect(url_for('index'))
+
+    tableResults = table['Results']
+
+    # Erstellen eines StringIO-Objekts im Speicher
+    output = io.StringIO()
+    writer = csv.writer(output)
+
+    # Schreiben der Spaltenüberschriften, basierend auf den Schlüsseln des ersten Eintrags
+    if tableResults:
+        writer.writerow(tableResults[0].keys())
+    # Schreiben der Datenzeilen
+    for row in tableResults:
+        writer.writerow(row.values())
+
+    # Zurücksetzen des Cursors des StringIO-Objekts auf den Anfang
+    output.seek(0)
+
+    # Erstellen und Senden der Antwort
+    return Response(
+        output.getvalue(), 
+        mimetype="text/csv", 
+        headers={"Content-disposition": "attachment; filename=export.csv"})
+
 
 # Login Page:
 @app.route('/login', methods=['GET', 'POST'])
@@ -145,7 +181,7 @@ def signup():
             session['username'] = username
             return redirect(url_for('index'))
         elif "Duplicate entry" in response:
-            flash('Ein Benutzer mit diesem Usernamen existiert bereits. Bitte einen anderen Usernamen nehmen.') # Fehlermeldung anzeigen
+            flash('Ein Benutzer mit diesem Usernamen existiert bereits. Bitte einen anderen Usernamen nehmen.') # Fehlermeldung anzeigens
         else:
             flash(f'Da ist etwas scheif gelaufen. Bitte erneut versuchen. {response}') # Fehlermeldung anzeigen
         return render_template('signup.html', username=username, name=name, email=email, password1=password1, password2=password2)
